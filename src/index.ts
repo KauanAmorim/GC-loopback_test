@@ -1,9 +1,12 @@
-import {ApplicationConfig, LoopbackTestApplication} from './application';
+import {
+  ApplicationConfig,
+  LoopbackEnglishClassApplication,
+} from './application';
 
 export * from './application';
 
 export async function main(options: ApplicationConfig = {}) {
-  const app = new LoopbackTestApplication(options);
+  const app = new LoopbackEnglishClassApplication(options);
   await app.boot();
   await app.start();
 

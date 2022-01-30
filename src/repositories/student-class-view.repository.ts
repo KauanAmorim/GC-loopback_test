@@ -1,6 +1,6 @@
 import {inject} from '@loopback/core';
 import {DefaultCrudRepository} from '@loopback/repository';
-import {LoopbackTestDataSource} from '../datasources';
+import {LoopbackEnglishClassDataSource} from '../datasources';
 import {StudentClassView, StudentClassViewRelations} from '../models';
 
 export class StudentClassViewRepository extends DefaultCrudRepository<
@@ -9,7 +9,8 @@ export class StudentClassViewRepository extends DefaultCrudRepository<
   StudentClassViewRelations
 > {
   constructor(
-    @inject('datasources.loopback_test') dataSource: LoopbackTestDataSource,
+    @inject('datasources.loopback_test')
+    dataSource: LoopbackEnglishClassDataSource,
   ) {
     super(StudentClassView, dataSource);
   }
