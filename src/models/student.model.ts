@@ -1,6 +1,14 @@
 import {Entity, model, property} from '@loopback/repository';
 
-@model({settings: {strict: false}})
+@model({
+  settings: {
+    postgresql: {
+      table: 'student',
+      schema: 'public',
+    },
+    strict: true,
+  },
+})
 export class Student extends Entity {
   @property({
     type: 'number',

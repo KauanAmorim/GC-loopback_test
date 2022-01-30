@@ -1,6 +1,14 @@
 import {model, property} from '@loopback/repository';
 import {Student} from './index';
-@model({settings: {strict: false}})
+@model({
+  settings: {
+    postgresql: {
+      table: 'student_class_view',
+      schema: 'public',
+    },
+    strict: true,
+  },
+})
 export class StudentClassView extends Student {
   @property({
     type: 'number',
