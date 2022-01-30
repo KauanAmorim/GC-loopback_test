@@ -5,7 +5,7 @@ import {StudentClass, StudentClassRelations} from '../models';
 
 export class StudentClassRepository extends DefaultCrudRepository<
   StudentClass,
-  typeof StudentClass.prototype.,
+  typeof StudentClass.prototype.classId,
   StudentClassRelations
 > {
   constructor(
