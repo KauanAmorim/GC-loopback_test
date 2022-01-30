@@ -11,4 +11,6 @@ export DB_SSL=
 
 export PORT=
 
+export DEBUG='loopback:connector:postgresql'
+
 npm run start:watch
