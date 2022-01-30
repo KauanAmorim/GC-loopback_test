@@ -30,9 +30,10 @@
     "premigrate": "npm run build",
     "migrate": "node ./dist/migrate",
     "preopenapi-spec": "npm run build",
-    "openapi-spec": "node ./dist/openapi-spec",
+    "openapi-spec": "node ./dist/openapi-spec app-openapi.json",
     "prestart": "npm run rebuild",
     "start": "node -r source-map-support/register .",
+    "start:watch": "tsc-watch --target es2017 --outDir ./dist --onSuccess \"node ./dist\"",
     "clean": "lb-clean dist *.tsbuildinfo .eslintcache",
     "rebuild": "npm run clean && npm run build"
   },
@@ -60,11 +61,12 @@
   },
   "devDependencies": {
     "@loopback/build": "^8.0.1",
-    "source-map-support": "^0.5.21",
+    "@loopback/eslint-config": "^12.0.1",
     "@loopback/testlab": "^4.0.1",
     "@types/node": "^10.17.60",
-    "@loopback/eslint-config": "^12.0.1",
     "eslint": "^8.6.0",
+    "source-map-support": "^0.5.21",
+    "tsc-watch": "^4.6.0",
     "typescript": "~4.5.4"
   }
 }

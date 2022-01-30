@@ -1,0 +1,2637 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "loopback_test",
+    "version": "0.0.1",
+    "description": "loopback_test",
+    "contact": {
+      "name": "KauanAmorim",
+      "email": "kauanamorim88@gmail.com"
+    }
+  },
+  "paths": {
+    "/classes/count": {
+      "get": {
+        "x-controller-name": "ClassController",
+        "x-operation-name": "count",
+        "tags": [
+          "ClassController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Class model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Class.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Class>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ClassController.count"
+      }
+    },
+    "/classes/{id}": {
+      "put": {
+        "x-controller-name": "ClassController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "ClassController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Class PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Class"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ClassController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "ClassController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "ClassController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Class PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClassPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ClassController.updateById"
+      },
+      "get": {
+        "x-controller-name": "ClassController",
+        "x-operation-name": "findById",
+        "tags": [
+          "ClassController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Class model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClassWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Class.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ClassController.findById"
+      },
+      "delete": {
+        "x-controller-name": "ClassController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "ClassController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Class DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "ClassController.deleteById"
+      }
+    },
+    "/classes": {
+      "post": {
+        "x-controller-name": "ClassController",
+        "x-operation-name": "create",
+        "tags": [
+          "ClassController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Class model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Class"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewClass"
+              }
+            }
+          }
+        },
+        "operationId": "ClassController.create"
+      },
+      "patch": {
+        "x-controller-name": "ClassController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "ClassController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Class PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Class.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Class>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClassPartial"
+              }
+            }
+          }
+        },
+        "operationId": "ClassController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "ClassController",
+        "x-operation-name": "find",
+        "tags": [
+          "ClassController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Class model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClassWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Class.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ClassController.find"
+      }
+    },
+    "/ping": {
+      "get": {
+        "x-controller-name": "PingController",
+        "x-operation-name": "ping",
+        "tags": [
+          "PingController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Ping Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PingResponse"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "PingController.ping"
+      }
+    },
+    "/student-class-views/count": {
+      "get": {
+        "x-controller-name": "StudentClassViewController",
+        "x-operation-name": "count",
+        "tags": [
+          "StudentClassViewController"
+        ],
+        "responses": {
+          "200": {
+            "description": "StudentClassView model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "StudentClassView.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<StudentClassView>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "StudentClassViewController.count"
+      }
+    },
+    "/student-class-views/{id}": {
+      "get": {
+        "x-controller-name": "StudentClassViewController",
+        "x-operation-name": "findById",
+        "tags": [
+          "StudentClassViewController"
+        ],
+        "responses": {
+          "200": {
+            "description": "StudentClassView model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudentClassViewWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudentClassView.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "StudentClassViewController.findById"
+      }
+    },
+    "/student-class-views": {
+      "get": {
+        "x-controller-name": "StudentClassViewController",
+        "x-operation-name": "find",
+        "tags": [
+          "StudentClassViewController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of StudentClassView model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StudentClassViewWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudentClassView.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "StudentClassViewController.find"
+      }
+    },
+    "/student-classes/count": {
+      "get": {
+        "x-controller-name": "StudentClassController",
+        "x-operation-name": "count",
+        "tags": [
+          "StudentClassController"
+        ],
+        "responses": {
+          "200": {
+            "description": "StudentClass model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "StudentClass.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<StudentClass>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "StudentClassController.count"
+      }
+    },
+    "/student-classes/{id}": {
+      "put": {
+        "x-controller-name": "StudentClassController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "StudentClassController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "StudentClass PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StudentClass"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "StudentClassController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "StudentClassController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "StudentClassController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "StudentClass PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StudentClassPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "StudentClassController.updateById"
+      },
+      "get": {
+        "x-controller-name": "StudentClassController",
+        "x-operation-name": "findById",
+        "tags": [
+          "StudentClassController"
+        ],
+        "responses": {
+          "200": {
+            "description": "StudentClass model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudentClassWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudentClass.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "StudentClassController.findById"
+      },
+      "delete": {
+        "x-controller-name": "StudentClassController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "StudentClassController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "StudentClass DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "StudentClassController.deleteById"
+      }
+    },
+    "/student-classes": {
+      "post": {
+        "x-controller-name": "StudentClassController",
+        "x-operation-name": "create",
+        "tags": [
+          "StudentClassController"
+        ],
+        "responses": {
+          "200": {
+            "description": "StudentClass model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudentClass"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewStudentClass"
+              }
+            }
+          }
+        },
+        "operationId": "StudentClassController.create"
+      },
+      "patch": {
+        "x-controller-name": "StudentClassController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "StudentClassController"
+        ],
+        "responses": {
+          "200": {
+            "description": "StudentClass PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "StudentClass.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<StudentClass>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StudentClassPartial"
+              }
+            }
+          }
+        },
+        "operationId": "StudentClassController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "StudentClassController",
+        "x-operation-name": "find",
+        "tags": [
+          "StudentClassController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of StudentClass model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StudentClassWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudentClass.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "StudentClassController.find"
+      }
+    },
+    "/students/count": {
+      "get": {
+        "x-controller-name": "StudentController",
+        "x-operation-name": "count",
+        "tags": [
+          "StudentController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Student model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Student.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Student>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "StudentController.count"
+      }
+    },
+    "/students/{id}": {
+      "put": {
+        "x-controller-name": "StudentController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "StudentController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Student PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Student"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "StudentController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "StudentController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "StudentController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Student PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StudentPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "StudentController.updateById"
+      },
+      "get": {
+        "x-controller-name": "StudentController",
+        "x-operation-name": "findById",
+        "tags": [
+          "StudentController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Student model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudentWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Student.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "StudentController.findById"
+      },
+      "delete": {
+        "x-controller-name": "StudentController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "StudentController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Student DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "StudentController.deleteById"
+      }
+    },
+    "/students": {
+      "post": {
+        "x-controller-name": "StudentController",
+        "x-operation-name": "create",
+        "tags": [
+          "StudentController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Student model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Student"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewStudent"
+              }
+            }
+          }
+        },
+        "operationId": "StudentController.create"
+      },
+      "patch": {
+        "x-controller-name": "StudentController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "StudentController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Student PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Student.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Student>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StudentPartial"
+              }
+            }
+          }
+        },
+        "operationId": "StudentController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "StudentController",
+        "x-operation-name": "find",
+        "tags": [
+          "StudentController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Student model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StudentWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Student.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "StudentController.find"
+      }
+    },
+    "/teachers/count": {
+      "get": {
+        "x-controller-name": "TeacherController",
+        "x-operation-name": "count",
+        "tags": [
+          "TeacherController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Teacher model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Teacher.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Teacher>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "TeacherController.count"
+      }
+    },
+    "/teachers/{id}": {
+      "put": {
+        "x-controller-name": "TeacherController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "TeacherController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Teacher PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Teacher"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "TeacherController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "TeacherController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "TeacherController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Teacher PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TeacherPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "TeacherController.updateById"
+      },
+      "get": {
+        "x-controller-name": "TeacherController",
+        "x-operation-name": "findById",
+        "tags": [
+          "TeacherController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Teacher model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TeacherWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Teacher.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "TeacherController.findById"
+      },
+      "delete": {
+        "x-controller-name": "TeacherController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "TeacherController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Teacher DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "TeacherController.deleteById"
+      }
+    },
+    "/teachers": {
+      "post": {
+        "x-controller-name": "TeacherController",
+        "x-operation-name": "create",
+        "tags": [
+          "TeacherController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Teacher model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Teacher"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewTeacher"
+              }
+            }
+          }
+        },
+        "operationId": "TeacherController.create"
+      },
+      "patch": {
+        "x-controller-name": "TeacherController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "TeacherController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Teacher PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Teacher.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Teacher>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TeacherPartial"
+              }
+            }
+          }
+        },
+        "operationId": "TeacherController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "TeacherController",
+        "x-operation-name": "find",
+        "tags": [
+          "TeacherController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Teacher model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TeacherWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Teacher.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "TeacherController.find"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "Class": {
+        "title": "Class",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "teacherId": {
+            "type": "number"
+          },
+          "startAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "teacherId",
+          "startAt",
+          "endAt"
+        ],
+        "additionalProperties": false
+      },
+      "NewClass": {
+        "title": "NewClass",
+        "type": "object",
+        "description": "(tsType: Omit<Class, 'id'>, schemaOptions: { title: 'NewClass', exclude: [ 'id' ] })",
+        "properties": {
+          "teacherId": {
+            "type": "number"
+          },
+          "startAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "teacherId",
+          "startAt",
+          "endAt"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Class, 'id'>"
+      },
+      "ClassWithRelations": {
+        "title": "ClassWithRelations",
+        "type": "object",
+        "description": "(tsType: ClassWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "teacherId": {
+            "type": "number"
+          },
+          "startAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "teacherId",
+          "startAt",
+          "endAt"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "ClassWithRelations"
+      },
+      "ClassPartial": {
+        "title": "ClassPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Class>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "teacherId": {
+            "type": "number"
+          },
+          "startAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Class>"
+      },
+      "StudentClassViewWithRelations": {
+        "title": "StudentClassViewWithRelations",
+        "type": "object",
+        "description": "(tsType: StudentClassViewWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "classId": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "name",
+          "active",
+          "classId"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "StudentClassViewWithRelations"
+      },
+      "StudentClass": {
+        "title": "StudentClass",
+        "type": "object",
+        "properties": {
+          "classId": {
+            "type": "number"
+          },
+          "studentId": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "classId",
+          "studentId"
+        ],
+        "additionalProperties": false
+      },
+      "NewStudentClass": {
+        "title": "NewStudentClass",
+        "type": "object",
+        "description": "(tsType: StudentClass, schemaOptions: { title: 'NewStudentClass' })",
+        "properties": {
+          "classId": {
+            "type": "number"
+          },
+          "studentId": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "classId",
+          "studentId"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "StudentClass"
+      },
+      "StudentClassWithRelations": {
+        "title": "StudentClassWithRelations",
+        "type": "object",
+        "description": "(tsType: StudentClassWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "classId": {
+            "type": "number"
+          },
+          "studentId": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "classId",
+          "studentId"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "StudentClassWithRelations"
+      },
+      "StudentClassPartial": {
+        "title": "StudentClassPartial",
+        "type": "object",
+        "description": "(tsType: Partial<StudentClass>, schemaOptions: { partial: true })",
+        "properties": {
+          "classId": {
+            "type": "number"
+          },
+          "studentId": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<StudentClass>"
+      },
+      "Student": {
+        "title": "Student",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "name",
+          "active"
+        ],
+        "additionalProperties": false
+      },
+      "NewStudent": {
+        "title": "NewStudent",
+        "type": "object",
+        "description": "(tsType: Omit<Student, 'id'>, schemaOptions: { title: 'NewStudent', exclude: [ 'id' ] })",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "name",
+          "active"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Student, 'id'>"
+      },
+      "StudentWithRelations": {
+        "title": "StudentWithRelations",
+        "type": "object",
+        "description": "(tsType: StudentWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "name",
+          "active"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "StudentWithRelations"
+      },
+      "StudentPartial": {
+        "title": "StudentPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Student>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Student>"
+      },
+      "Teacher": {
+        "title": "Teacher",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "name",
+          "active"
+        ],
+        "additionalProperties": false
+      },
+      "NewTeacher": {
+        "title": "NewTeacher",
+        "type": "object",
+        "description": "(tsType: Omit<Teacher, 'id'>, schemaOptions: { title: 'NewTeacher', exclude: [ 'id' ] })",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "name",
+          "active"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Teacher, 'id'>"
+      },
+      "TeacherWithRelations": {
+        "title": "TeacherWithRelations",
+        "type": "object",
+        "description": "(tsType: TeacherWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "name",
+          "active"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "TeacherWithRelations"
+      },
+      "TeacherPartial": {
+        "title": "TeacherPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Teacher>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Teacher>"
+      },
+      "loopback.Count": {
+        "type": "object",
+        "title": "loopback.Count",
+        "x-typescript-type": "@loopback/repository#Count",
+        "properties": {
+          "count": {
+            "type": "number"
+          }
+        }
+      },
+      "Class.Filter": {
+        "type": "object",
+        "title": "Class.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "teacherId": {
+                    "type": "boolean"
+                  },
+                  "startAt": {
+                    "type": "boolean"
+                  },
+                  "endAt": {
+                    "type": "boolean"
+                  },
+                  "createdAt": {
+                    "type": "boolean"
+                  },
+                  "updatedAt": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "teacherId",
+                    "startAt",
+                    "endAt",
+                    "createdAt",
+                    "updatedAt"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Class.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Class>"
+      },
+      "Class.Filter1": {
+        "type": "object",
+        "title": "Class.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Class.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "teacherId": {
+                    "type": "boolean"
+                  },
+                  "startAt": {
+                    "type": "boolean"
+                  },
+                  "endAt": {
+                    "type": "boolean"
+                  },
+                  "createdAt": {
+                    "type": "boolean"
+                  },
+                  "updatedAt": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "teacherId",
+                    "startAt",
+                    "endAt",
+                    "createdAt",
+                    "updatedAt"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Class.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Class>"
+      },
+      "PingResponse": {
+        "type": "object",
+        "title": "PingResponse",
+        "properties": {
+          "greeting": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object",
+            "properties": {
+              "Content-Type": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "StudentClassView.Filter": {
+        "type": "object",
+        "title": "StudentClassView.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "boolean"
+                  },
+                  "active": {
+                    "type": "boolean"
+                  },
+                  "createdAt": {
+                    "type": "boolean"
+                  },
+                  "updatedAt": {
+                    "type": "boolean"
+                  },
+                  "classId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "name",
+                    "active",
+                    "createdAt",
+                    "updatedAt",
+                    "classId"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "StudentClassView.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<StudentClassView>"
+      },
+      "StudentClassView.Filter1": {
+        "type": "object",
+        "title": "StudentClassView.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "StudentClassView.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "boolean"
+                  },
+                  "active": {
+                    "type": "boolean"
+                  },
+                  "createdAt": {
+                    "type": "boolean"
+                  },
+                  "updatedAt": {
+                    "type": "boolean"
+                  },
+                  "classId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "name",
+                    "active",
+                    "createdAt",
+                    "updatedAt",
+                    "classId"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "StudentClassView.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<StudentClassView>"
+      },
+      "StudentClass.Filter": {
+        "type": "object",
+        "title": "StudentClass.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "classId": {
+                    "type": "boolean"
+                  },
+                  "studentId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "classId",
+                    "studentId"
+                  ],
+                  "example": "classId"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "StudentClass.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<StudentClass>"
+      },
+      "StudentClass.Filter1": {
+        "type": "object",
+        "title": "StudentClass.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "StudentClass.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "classId": {
+                    "type": "boolean"
+                  },
+                  "studentId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "classId",
+                    "studentId"
+                  ],
+                  "example": "classId"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "StudentClass.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<StudentClass>"
+      },
+      "Student.Filter": {
+        "type": "object",
+        "title": "Student.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "boolean"
+                  },
+                  "active": {
+                    "type": "boolean"
+                  },
+                  "createdAt": {
+                    "type": "boolean"
+                  },
+                  "updatedAt": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "name",
+                    "active",
+                    "createdAt",
+                    "updatedAt"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Student.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Student>"
+      },
+      "Student.Filter1": {
+        "type": "object",
+        "title": "Student.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Student.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "boolean"
+                  },
+                  "active": {
+                    "type": "boolean"
+                  },
+                  "createdAt": {
+                    "type": "boolean"
+                  },
+                  "updatedAt": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "name",
+                    "active",
+                    "createdAt",
+                    "updatedAt"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Student.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Student>"
+      },
+      "Teacher.Filter": {
+        "type": "object",
+        "title": "Teacher.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "boolean"
+                  },
+                  "active": {
+                    "type": "boolean"
+                  },
+                  "createdAt": {
+                    "type": "boolean"
+                  },
+                  "updatedAt": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "name",
+                    "active",
+                    "createdAt",
+                    "updatedAt"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Teacher.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Teacher>"
+      },
+      "Teacher.Filter1": {
+        "type": "object",
+        "title": "Teacher.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Teacher.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "boolean"
+                  },
+                  "active": {
+                    "type": "boolean"
+                  },
+                  "createdAt": {
+                    "type": "boolean"
+                  },
+                  "updatedAt": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "name",
+                    "active",
+                    "createdAt",
+                    "updatedAt"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Teacher.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Teacher>"
+      }
+    }
+  }
+}
